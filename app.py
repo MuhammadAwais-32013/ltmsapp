@@ -52,9 +52,9 @@ def join_model_parts_custom(part_files, output_file="poetry_generation_model.ker
 MODEL_PATH = "poetry_generation_model.keras"
 PART_FILES = [
     "poetry_model_part_aa",
-    "poetry_model_part_bb",
-    "poetry_model_part_cc",
-    "poetry_model_part_dd"
+    "poetry_model_part_ab",
+    "poetry_model_part_acc",
+    "poetry_model_part_ad"
 ]
 
 if not os.path.exists(MODEL_PATH):
