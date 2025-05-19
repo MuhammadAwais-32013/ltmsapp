@@ -29,8 +29,6 @@ st.set_page_config(
 def join_model_parts_custom(part_files, output_file="poetry_generation_model.keras"):
     if os.path.exists(output_file):
         return
-    # debug: list available files
-    st.write("🔍 Available files:", os.listdir("."))
     try:
         with open(output_file, "wb") as out:
             for part in part_files:
@@ -39,7 +37,7 @@ def join_model_parts_custom(part_files, output_file="poetry_generation_model.ker
                     st.stop()
                 with open(part, "rb") as inp:
                     out.write(inp.read())
-        st.success("✅ Model parts joined successfully.")
+        
     except Exception as e:
         st.error(f"Error joining model parts: {e}")
         st.stop()
@@ -49,7 +47,7 @@ PART_FILES = [
     "poetry_model_part_aa",
     "poetry_model_part_ab",
     "poetry_model_part_ac",
-    "poetry_model_part_ad"
+    "poetry_model_part_ad",
 ]
 
 if not os.path.exists(MODEL_PATH):
