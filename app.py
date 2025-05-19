@@ -23,6 +23,43 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
+def join_model_parts_custom(part_files, output_file="poetry_generation_model.keras"):
+    """
+    Joins the provided model part files into one .keras file.
+
+    Args:
+        part_files (list): List of part filenames in order.
+        output_file (str): Final output model file path.
+    """
+    if os.path.exists(output_file):
+        return  # Skip if already joined
+
+    try:
+        with open(output_file, 'wb') as outfile:
+            for part in part_files:
+                if not os.path.exists(part):
+                    st.error(f"Missing model part: {part}")
+                    st.stop()
+                with open(part, 'rb') as infile:
+                    outfile.write(infile.read())
+        st.success("Model parts joined successfully.")
+    except Exception as e:
+        st.error(f"Error joining model parts: {e}")
+        st.stop()
+
+
+# Rejoin if model doesn't exist yet
+MODEL_PATH = "poetry_generation_model.keras"
+PART_FILES = [
+    "poetry_model_part_aa",
+    "poetry_model_part_bb",
+    "poetry_model_part_cc",
+    "poetry_model_part_dd"
+]
+
+if not os.path.exists(MODEL_PATH):
+    join_model_parts_custom(PART_FILES, MODEL_PATH)
+
 # ----------------------------
 # 2. Define Word Mappings
 # ----------------------------
@@ -107,7 +144,7 @@ def load_model():
         model (tf.keras.Model): Loaded TensorFlow model.
     """
     try:
-        model = tf.keras.models.load_model('poetry_generation_model.keras')
+        model = tf.keras.models.load_model(MODEL_PATH)
         logger.info("Model loaded successfully.")
         return model
     except Exception as e:
