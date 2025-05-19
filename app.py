@@ -124,13 +124,13 @@ if not word2idx or not idx2word:
 #         st.error(f"Error rejoining model: {e}")
 #         return False
 
-# Rejoin if model doesn't exist yet
-MODEL_PATH = "poetry_generation_model.keras"
-if not os.path.exists(MODEL_PATH):
-    if rejoin_model_file(MODEL_PATH, num_parts=4):
-        st.success("Model rejoined successfully.")
-    else:
-        st.stop()
+# # Rejoin if model doesn't exist yet
+# MODEL_PATH = "poetry_generation_model.keras"
+# if not os.path.exists(MODEL_PATH):
+#     if rejoin_model_file(MODEL_PATH, num_parts=4):
+#         st.success("Model rejoined successfully.")
+#     else:
+#         st.stop()
 # ----------------------------
 # 3. Load the Model
 # ----------------------------
