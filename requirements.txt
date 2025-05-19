@@ -2,9 +2,5 @@ streamlit>=1.24.0
 tensorflow>=2.12.0
 numpy>=1.21.0
 nltk>=3.8.1
-<<<<<<< HEAD
-gdown>=4.7.1
-=======
-gdown>=4.7.1
->>>>>>> bf5e934f61098e7027d4f2c0b67cacd447757918
+
 
