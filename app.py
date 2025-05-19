@@ -28,9 +28,9 @@ st.set_page_config(
 MODEL_PATH = "poetry_generation_model.keras"
 PART_FILES = [
     "poetry_model_part_aa",
-    "poetry_model_part_bb",
-    "poetry_model_part_cc",
-    "poetry_model_part_dd",
+    "poetry_model_part_ab",
+    "poetry_model_part_ac",
+    "poetry_model_part_ad",
 ]
 
 def join_model_parts(part_files, output_file):
