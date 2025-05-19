@@ -53,7 +53,7 @@ MODEL_PATH = "poetry_generation_model.keras"
 PART_FILES = [
     "poetry_model_part_aa",
     "poetry_model_part_ab",
-    "poetry_model_part_acc",
+    "poetry_model_part_ac",
     "poetry_model_part_ad"
 ]
 
