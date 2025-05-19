@@ -99,30 +99,30 @@ if not word2idx or not idx2word:
 # 3. Rejoin Model from Split Parts (Before Loading)
 # ----------------------------
 
-def rejoin_model_file(output_path, num_parts):
-    """
-    Rejoins split model files into a single .keras file.
+# def rejoin_model_file(output_path, num_parts):
+#     """
+#     Rejoins split model files into a single .keras file.
 
-    Args:
-        output_path (str): The path where the rejoined file will be saved.
-        num_parts (int): The number of split parts.
+#     Args:
+#         output_path (str): The path where the rejoined file will be saved.
+#         num_parts (int): The number of split parts.
 
-    Returns:
-        bool: True if rejoining is successful, False otherwise.
-    """
-    try:
-        with open(output_path, 'wb') as outfile:
-            for i in range(num_parts):
-                part_path = f"{output_path}_part_{i:02}"
-                if not os.path.exists(part_path):
-                    st.error(f"Missing model part: {part_path}")
-                    return False
-                with open(part_path, 'rb') as infile:
-                    outfile.write(infile.read())
-        return True
-    except Exception as e:
-        st.error(f"Error rejoining model: {e}")
-        return False
+#     Returns:
+#         bool: True if rejoining is successful, False otherwise.
+#     """
+#     try:
+#         with open(output_path, 'wb') as outfile:
+#             for i in range(num_parts):
+#                 part_path = f"{output_path}_part_{i:02}"
+#                 if not os.path.exists(part_path):
+#                     st.error(f"Missing model part: {part_path}")
+#                     return False
+#                 with open(part_path, 'rb') as infile:
+#                     outfile.write(infile.read())
+#         return True
+#     except Exception as e:
+#         st.error(f"Error rejoining model: {e}")
+#         return False
 
 # Rejoin if model doesn't exist yet
 MODEL_PATH = "poetry_generation_model.keras"
